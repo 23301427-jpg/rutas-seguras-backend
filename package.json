@@ -3,11 +3,15 @@
   "version": "1.0.0",
   "description": "Backend de Rutas Seguras: app de senderismo/ciclismo con monitoreo de seguridad en tiempo real",
   "main": "server.js",
+  "engines": {
+    "node": "22.x"
+  },
   "scripts": {
     "start": "node server.js",
     "dev": "nodemon server.js",
     "seed": "node src/utils/seed.js"
   },
+   
   "dependencies": {
     "bcryptjs": "^2.4.3",
     "cors": "^2.8.5",
