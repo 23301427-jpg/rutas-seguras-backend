@@ -17,7 +17,7 @@ async function seed() {
   await EmergencyContact.create({
     userId: user.id,
     name: 'Carlos Torres',
-    phone: '+525587654321', // cambia esto por un número real para probar el SMS
+    phone: '+525536797664', // cambia esto por un número real para probar el SMS
     relationship: 'Hermano',
     isPrimary: true,
   });

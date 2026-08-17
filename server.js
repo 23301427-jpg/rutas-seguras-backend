@@ -14,6 +14,7 @@ const server = http.createServer(app);
 const io = new Server(server, {
   cors: { origin: '*' },
 });
+
 initSockets(io);
 
 async function start() {
@@ -21,15 +22,13 @@ async function start() {
     await sequelize.authenticate();
     console.log('Conexión a la base de datos establecida correctamente.');
 
-    // sync crea las tablas automáticamente si no existen (ideal para este
-    // proyecto con SQLite). Para producción se recomendarían migraciones.
     await sequelize.sync();
     console.log('Modelos sincronizados con la base de datos.');
 
     startInactivityChecker();
 
-    server.listen(PORT, () => {
-      console.log(`Rutas Seguras backend corriendo en http://localhost:${PORT}`);
+    server.listen(PORT, '0.0.0.0', () => {
+      console.log(`Rutas Seguras backend corriendo en el puerto ${PORT}`);
     });
   } catch (error) {
     console.error('Error al iniciar el servidor:', error);
